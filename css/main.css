@@ -1,0 +1,50 @@
+@font-face {
+    font-family: Arcade;
+    src: url('./fonts/ARCADECLASSIC.TTF');
+}
+
+#juego{
+    font-family: Arcade;
+    color: white;
+    position: relative;
+    border: 20px solid transparent;
+    background-image: url('../sprites/hexagon_pattern.png');
+    background-size:cover;
+    background-repeat: no-repeat;
+    border-image: url('../sprites/borde.png') 2.5% round;
+    width: 700px;
+    height:700px;
+    overflow: hidden;
+    cursor: default;
+}
+
+h1{
+    margin: 0 0 0 20px;
+    font-size: 48px;
+}
+
+.ladrillo{
+    width: 66px;
+    height: 30px;
+    position: absolute;
+}
+
+#paleta{
+    position: absolute;
+    width: 66px;
+    height: 20px;
+    top: 660px;
+    background-image: url(../sprites/racket.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#bola{
+    
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: white;
+}
