@@ -8,7 +8,6 @@ class Bola{
         bola.style.top = "600px";
         bola.style.left = "340px";
         document.getElementById("juego").appendChild(bola);
-        console.log(this)
     }
 
     
