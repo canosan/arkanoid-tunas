@@ -12,6 +12,7 @@ window.onload = function(){
         let posicionX = evento.pageX - 60;
         paleta.style.left = posicionX+"px";
     });
+
     globalThis.velocidad = 4;
     globalThis.dx = velocidad;
     globalThis.dy = -velocidad;
@@ -32,7 +33,7 @@ function colocarLadrillos(){
             ladrillo.dibujarLadrillo(colores[i]);
             posx += 76;
         }
-        posy += 35;
+        posy += 36;
         posx = 10;
     }
 
@@ -77,7 +78,6 @@ function bolaPosicionYColisiones(){
     if(dx > -1 && dx <=0 || dx >0 && dx < 1){
         var num = velocidad / 2;
         dx = Math.floor(Math.random() * (num - (-num))) -num;
-        console.log(dx);
     }
 
     
@@ -93,20 +93,33 @@ function bolaPosicionYColisiones(){
         dy = -(Math.abs(dy));
     }
 
-    // Aquí viene lo gordo, comprobamos colision con ladrillos
+    // Creo una lista con todos los ladrillos
     var ladrillos = [...document.getElementsByClassName("ladrillo")];
+
+    // Compruebo si queda algún ladrillo, sino pasamos a la siguiente fase
     if(ladrillos.length < 1){
         ladrillos.forEach(ladrillo => {
             ladrillo.remove();
         })
         siguienteFase();
     }
+
+    // Aquí viene lo gordo, comprobamos colision con ladrillos
     ladrillos.forEach(ladrillo => {
         var leftLadrillo = (parseInt(ladrillo.style.left.replace(/px/,"")));
         var topLadrillo = (parseInt(ladrillo.style.top.replace(/px/,"")));
+
+        // Si detecta colisión con algún ladrillo
         if(left < leftLadrillo + ladrillo.clientWidth && bola.clientWidth + left > leftLadrillo &&
             top < topLadrillo + ladrillo.clientHeight && bola.clientHeight + top > topLadrillo){
-            dy = -dy;
+
+            // Si la colisión ocurre desde el lado derecho o izquierdo
+            if(top < topLadrillo + ladrillo.clientHeight - bola.clientHeight && top > topLadrillo - (bola.clientHeight / 2)){
+                dx = -dx;
+            }
+            
+            // Si ocurre desde arriba o abajo
+            else dy = -dy;
             ladrillo.remove();
             puntos += 100;
         }
