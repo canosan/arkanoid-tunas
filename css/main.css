@@ -3,6 +3,10 @@
     src: url('./fonts/ARCADECLASSIC.TTF');
 }
 
+body{
+    background-color: black;
+}
+
 #juego{
     font-family: Arcade;
     color: white;
@@ -15,7 +19,7 @@
     width: 700px;
     height:700px;
     overflow: hidden;
-    cursor: default;
+    cursor: none;
 }
 
 h1{
@@ -24,7 +28,7 @@ h1{
 }
 
 .ladrillo{
-    width: 66px;
+    width: 72px;
     height: 30px;
     position: absolute;
 }
@@ -40,11 +44,10 @@ h1{
 }
 
 #bola{
-    
     position: absolute;
     width: 15px;
     height: 15px;
-    border: 1px solid transparent;
-    border-radius: 10px;
-    background-color: white;
+    background-image: url(../sprites/ball.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }

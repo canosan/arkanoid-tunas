@@ -10,9 +10,6 @@ class Paleta{
         paleta.style.width = "66px";
         paleta.style.height = "20px";
         paleta.style.top = "660px";
-        paleta.style.backgroundImage = "url(./sprites/racket.png)";
-        paleta.style.backgroundRepeat = "no-repeat";
-        paleta.style.backgroundSize = "cover";
         
         document.getElementById("juego").appendChild(paleta);
     }
